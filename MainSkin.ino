@@ -19,20 +19,20 @@ void setup() {
 
   // init spectrometer
   if (!as7341.begin()) {
-    Serial.println("❌ AS7341 not detected.");
+    Serial.println("AS7341 not detected.");
     while (1);
   }
   as7341.setATIME(100);
   as7341.setASTEP(999);
   as7341.setGain(AS7341_GAIN_256X);
 
-  Serial.println("✅ Skin State Detector Ready");
+  Serial.println("Skin State Detector Ready");
 }
 
 void loop() {
   // read all channels
   if (!as7341.readAllChannels()) {
-    Serial.println("⚠️ Read error");
+    Serial.println("Read error");
     delay(500);
     return;
   }
